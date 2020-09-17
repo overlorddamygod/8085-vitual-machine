@@ -19,10 +19,8 @@ code = code.split(' ').map(c=>{
 }).filter(c=>!!c);
 
 code.forEach(c=>{
-  // console.log(c) / /
   writeableMemArray[index++] = parseInt(Number(c))
 })
 console.log(writeableMemArray)
 
-// console.log(cpu.getRegister("A"))
 cpu.run()

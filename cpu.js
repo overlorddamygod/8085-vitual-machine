@@ -256,8 +256,16 @@ class CPU {
       setImmediate(()=>this.run());
     } else {
       this.logRegisters();
+      this.resetRegisters();
+
     }
     return;
+  }
+
+  resetRegisters() {
+    this.registerLabels.forEach((name,index) => {
+      this.setRegister(name,0,index < 3 ? 16 : 8);
+    })
   }
 
   logRegisters() {
