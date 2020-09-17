@@ -1,9 +1,9 @@
-const opcodes = require("./opcodes")
+const { opcodes } = require("./opcodes")
 const { createMemory } = require("./utils");
 const CPU = require("./cpu");
 let code = require("./code");
 
-const memory = createMemory(256);
+const memory = createMemory(256*256);
 const writeableMemArray = new Uint8Array(memory.buffer)
 const cpu = new CPU(memory);
 
@@ -22,8 +22,7 @@ code.forEach(c=>{
   // console.log(c) / /
   writeableMemArray[index++] = parseInt(Number(c))
 })
-console.log(memory)
+console.log(writeableMemArray)
 
 // console.log(cpu.getRegister("A"))
 cpu.run()
-
